@@ -3,7 +3,7 @@
 
 **Especificación Normativa, Evaluación Ambiental, Sociocultural y Económica, Asistencia con IA y Manual de Aplicación**  
 **Modelo de Documentación Adaptado:** ManField Software Documentation Standard (ISO/IEC 25010 & IEEE Style)  
-**Versión:** 2.0  
+**Versión:** 3.0 (Actualizada con Autenticación de Usuarios y Persistencia MySQL)  
 **Fecha:** 2026  
 
 ---
@@ -114,6 +114,8 @@ Evalúa hoteles, hostales, posadas y glampings:
 - **RF-TUR-02:** Cuestionario especializado con checklist de evidencias ambientales y registros sanitarios.
 - **RF-TUR-03:** Asistente IA experto en sostenibilidad turística y normativa colombiana.
 - **RF-TUR-04:** Gráficos de cumplimiento sectorial y reporte descargable en PDF.
+- **RF-TUR-05:** Registro e inicio de sesión de usuarios con contraseñas protegidas mediante derivación de claves PBKDF2 con sal aleatoria (`backend/routes/auth.js`).
+- **RF-TUR-06:** Persistencia de establecimientos y diagnósticos históricos en base de datos MySQL, aislados por cuenta de usuario (`user_id`), con consulta del historial desde el panel principal.
 
 ---
 
@@ -149,19 +151,22 @@ export const NTC6503_STANDARD: IsoStandardData = {
 
 # ANEXO 1. GUÍA OPERATIVA DEL AUDITOR DE SOSTENIBILIDAD TURÍSTICA
 
-### Paso 1: Selección de Establecimiento
+### Paso 1: Creación de Cuenta e Ingreso al Sistema
+En la pantalla de inicio presione **"Registrarse"** y cree su cuenta con nombre de usuario y contraseña (la contraseña se protege con cifrado PBKDF2 en el servidor). Si ya tiene cuenta, ingrese sus credenciales y presione **"Ingresar"**. Cada evaluador accede únicamente a los establecimientos y diagnósticos asociados a su propia cuenta.
+
+### Paso 2: Selección de Establecimiento
 En el panel principal presione **"+ Nuevo Diagnóstico"** y seleccione:
 - **NTC 6496** si evalúa un Restaurante o Establecimiento Gastronómico.
 - **NTC 6503** si evalúa un Hotel, Hostal o Posada Turística.
 
-### Paso 2: Registro de Caracterización Turística
+### Paso 3: Registro de Caracterización Turística
 Diligencie la información del establecimiento (Nombre, RNT/ID, Departamento, Ciudad, Responsable y Capacidad).
 
-### Paso 3: Cuestionario de Sostenibilidad
+### Paso 4: Cuestionario de Sostenibilidad
 Evalúe cada ítem ambiental, sociocultural y económico:
 - Registre la respuesta (**Cumple**, **Parcialmente**, **No Cumple**).
 - Verifique las evidencias de soporte (Registros de agua/energía, manifiestos de residuos, contratos locales, certificados sanitarios).
 - Utilice el **Asistente IA de Sostenibilidad** para aclarar dudas técnicas de ahorro energético o manejo de residuos.
 
-### Paso 4: Plan de Acción Ambiental y Reporte PDF
-Obtenga la matriz de acciones de sostenibilidad generada por la IA y descargue el informe oficial en PDF para auditoría o certificación.
+### Paso 5: Plan de Acción Ambiental, Reporte PDF e Historial
+Obtenga la matriz de acciones de sostenibilidad generada por la IA y descargue el informe oficial en PDF para auditoría o certificación. Cada diagnóstico queda guardado en su historial, lo que permite comparar la evolución del cumplimiento entre evaluaciones sucesivas.
