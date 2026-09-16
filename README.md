@@ -40,7 +40,7 @@ npm run build
 
 ## Documentación
 
-- `MANUAL_DE_USO.html`: manual visual de la aplicación.
+- [`MANUAL_DE_USO_SOSTENIBILIDAD.html`](MANUAL_DE_USO_SOSTENIBILIDAD.html): manual visual y operativo específico para NTC 6496/6503.
 - `MANUAL_NTC_6496_6503.md`: manual normativo.
 - `backend/README.md`: configuración de la API y la base de datos.
 

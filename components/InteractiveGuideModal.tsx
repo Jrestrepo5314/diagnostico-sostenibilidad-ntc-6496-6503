@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 interface InteractiveGuideModalProps {
   isOpen: boolean;
@@ -13,18 +13,18 @@ interface InteractiveGuideModalProps {
 type ActiveTab = 'guia_uso' | 'ntc_6001' | 'ntc_sostenible' | 'manual_app';
 
 const USER_GUIDE_STEPS = [
-  { id: 1, title: '1. Introducción y Capacidades', icon: '📖' },
-  { id: 2, title: '2. Acceso y Login', icon: '🔑' },
-  { id: 3, title: '3. Dashboard Principal', icon: '🖥️' },
-  { id: 4, title: '4. Caracterización de Empresa', icon: '🏢' },
-  { id: 5, title: '5. Cuestionario y Evidencias', icon: '📋' },
-  { id: 6, title: '6. Asistente IA Contextual', icon: '🤖' },
-  { id: 7, title: '7. Resultados y Gráficas', icon: '📊' },
-  { id: 8, title: '8. Plan de Acción IA', icon: '🎯' },
-  { id: 9, title: '9. Exportación PDF', icon: '📄' },
-  { id: 10, title: '10. Historial Comparativo', icon: '📈' },
-  { id: 11, title: '11. Solución de Problemas', icon: '🛠️' },
-  { id: 12, title: '12. Ejemplos Prácticos', icon: '💡' },
+  { id: 1, title: '1. INTRODUCCIÓN', icon: '📖' },
+  { id: 2, title: '2. ACCESO AL SISTEMA — PANTALLA DE LOGIN', icon: '🔑' },
+  { id: 3, title: '3. DESCRIPCIÓN DE LA INTERFAZ PRINCIPAL (DASHBOARD)', icon: '🖥️' },
+  { id: 4, title: '4. INICIO Y CONFIGURACIÓN DE UN NUEVO DIAGNÓSTICO', icon: '🏢' },
+  { id: 5, title: '5. DILIGENCIAMIENTO DEL CUESTIONARIO Y EVIDENCIAS', icon: '📋' },
+  { id: 6, title: '6. USO DEL ASISTENTE DE INTELIGENCIA ARTIFICIAL CONTEXTUAL', icon: '🤖' },
+  { id: 7, title: '7. RESULTADOS Y GRÁFICAS INTERACTIVAS', icon: '📊' },
+  { id: 8, title: '8. GENERACIÓN DEL PLAN DE ACCIÓN CON IA', icon: '🎯' },
+  { id: 9, title: '9. EXPORTACIÓN DEL INFORME OFICIAL EN PDF', icon: '📄' },
+  { id: 10, title: '10. HISTORIAL Y SEGUIMIENTO COMPARATIVO', icon: '📈' },
+  { id: 11, title: '11. SOLUCIÓN DE PROBLEMAS Y LISTA DE VERIFICACIÓN RÁPIDA', icon: '🛠️' },
+  { id: 12, title: '12. EJEMPLOS PRÁCTICOS DE DIAGNÓSTICO', icon: '💡' },
 ];
 
 const TROUBLESHOOTING_ITEMS = [
@@ -136,7 +136,23 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
   const [selectedGuideStep, setSelectedGuideStep] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTroubleId, setActiveTroubleId] = useState<string | null>(null);
-  
+
+  // Auto-scroll to section when guide step changes
+  useEffect(() => {
+    if (activeTab === 'guia_uso' && selectedGuideStep) {
+      const step = USER_GUIDE_STEPS.find(s => s.id === selectedGuideStep);
+      if (step) {
+        const id = step.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    }
+  }, [selectedGuideStep, activeTab]);
+
   // Interactive Simulator States
   const [simAnswer, setSimAnswer] = useState<'cumple' | 'parcial' | 'nocumple'>('cumple');
   const [simEvidences, setSimEvidences] = useState<{ [key: string]: boolean }>({
@@ -184,7 +200,19 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
     return headings;
   }, [currentMarkdownContent]);
 
-  // Filter headings or troubleshooting by search query
+  // Filter headings, guide steps or troubleshooting by search query
+  const filteredGuideSteps = useMemo(() => {
+    if (!searchQuery.trim()) return USER_GUIDE_STEPS;
+    const q = searchQuery.toLowerCase();
+    return USER_GUIDE_STEPS.filter(step => step.title.toLowerCase().includes(q));
+  }, [searchQuery]);
+
+  const filteredTocHeadings = useMemo(() => {
+    if (!searchQuery.trim()) return tocHeadings;
+    const q = searchQuery.toLowerCase();
+    return tocHeadings.filter(h => h.title.toLowerCase().includes(q));
+  }, [searchQuery, tocHeadings]);
+
   const filteredTroubleshooting = useMemo(() => {
     if (!searchQuery.trim()) return TROUBLESHOOTING_ITEMS;
     const q = searchQuery.toLowerCase();
@@ -344,7 +372,7 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
                   Pasos de la Guía Interactiva
                 </h3>
                 <div className="space-y-1">
-                  {USER_GUIDE_STEPS.map(step => (
+                  {filteredGuideSteps.map(step => (
                     <button
                       key={step.id}
                       onClick={() => setSelectedGuideStep(step.id)}
@@ -366,10 +394,10 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
                   Tabla de Contenido
                 </h3>
                 <div className="space-y-1">
-                  {tocHeadings.length === 0 ? (
+                  {filteredTocHeadings.length === 0 ? (
                     <p className="text-xs text-slate-400 italic">No se encontraron secciones</p>
                   ) : (
-                    tocHeadings.map((h, i) => (
+                    filteredTocHeadings.map((h, i) => (
                       <a
                         key={i}
                         href={`#${h.id}`}

@@ -1,4 +1,4 @@
-# Backend de la Plataforma de Diagnóstico de Calidad Multi-Norma
+# Backend de la Plataforma de Diagnóstico de Sostenibilidad (NTC 6496 y 6503)
 
 Este es el servidor backend desarrollado en **Node.js/Express** para almacenar de forma persistente los diagnósticos y las empresas en una base de datos **MySQL**, reemplazando el uso de `localStorage` del navegador.
 
@@ -20,13 +20,13 @@ Este es el servidor backend desarrollado en **Node.js/Express** para almacenar d
 ### 1. Inicializar la Base de Datos
 
 1. Abra su cliente de base de datos MySQL (MySQL Workbench, phpMyAdmin o terminal).
-2. Cree una nueva base de datos llamada `diagnostico_calidad`:
+2. Cree una nueva base de datos llamada `diagnostico_sostenibilidad`:
    ```sql
-   CREATE DATABASE diagnostico_calidad CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   CREATE DATABASE diagnostico_sostenibilidad CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
    ```
 3. Ejecute el script de migración inicial ubicado en `migrations/001_schema.sql` para crear las tablas necesarias:
    ```bash
-   mysql -u tu_usuario -p diagnostico_calidad < migrations/001_schema.sql
+   mysql -u tu_usuario -p diagnostico_sostenibilidad < migrations/001_schema.sql
    ```
 
 ### 2. Configurar Variables de Entorno
@@ -38,7 +38,7 @@ DB_HOST=localhost
 DB_PORT=3306
 DB_USER=tu_usuario_mysql
 DB_PASSWORD=
-DB_NAME=diagnostico_calidad
+DB_NAME=diagnostico_sostenibilidad
 PORT=3001
 CORS_ORIGINS=http://localhost:5173
 ```

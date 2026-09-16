@@ -1,5 +1,5 @@
 # 📘 MANUAL DE INGENIERÍA Y DOCUMENTACIÓN TÉCNICA DEL SISTEMA
-## Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma (NTC 6001 / NTC 6496 / NTC 6503)
+## Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma (NTC 6496 / NTC 6503)
 
 **Documento de Especificación, Arquitectura, Calidad y Manual de Usuario**  
 **Modelo de Documentación Adaptado:** ManField Software Documentation Standard (ISO/IEC 25010 & IEEE Style)  
@@ -64,7 +64,7 @@
 
 ## 1. PLANTEAMIENTO DEL PROBLEMA
 
-La evaluación del cumplimiento normativo de calidad y sostenibilidad en micro, pequeñas y medianas empresas (MIPYMES) y establecimientos turísticos/gastronómicos en Colombia enfrenta múltiples obstáculos. Los métodos tradicionales basados en hojas de cálculo estáticas o formularios físicos suelen generar inconsistencias, falta de trazabilidad histórica, errores en el cálculo de ponderación de evidencias y dificultades en la interpretación técnica de los requisitos exigidos por las Normas Técnicas Colombianas (**NTC 6001**, **NTC 6496** y **NTC 6503**).
+La evaluación del cumplimiento normativo de calidad y sostenibilidad en micro, pequeñas y medianas empresas (MIPYMES) y establecimientos turísticos/gastronómicos en Colombia enfrenta múltiples obstáculos. Los métodos tradicionales basados en hojas de cálculo estáticas o formularios físicos suelen generar inconsistencias, falta de trazabilidad histórica, errores en el cálculo de ponderación de evidencias y dificultades en la interpretación técnica de los requisitos exigidos por las Normas Técnicas Colombianas (**NTC 6496** y **NTC 6503**).
 
 Adicionalmente, las organizaciones a menudo carecen de asesores expertos permanentes que traduzcan los hallazgos de auditoría en planes de acción ejecutables y priorizados. La falta de una herramienta computacional interactiva, accesible desde la web, con capacidades de análisis automatizado mediante Inteligencia Artificial y almacenamiento estructurado de evaluaciones previas aislado por usuario en base de datos relacional, limita la capacidad de las empresas para lograr y mantener certificaciones de calidad y sostenibilidad.
 
@@ -84,10 +84,10 @@ El desarrollo de esta plataforma se justifica por las siguientes razones clave:
 ## 2. OBJETIVOS
 
 ### 2.1 Objetivo General
-Desarrollar y consolidar una plataforma web interactiva y multi-norma especializada en el diagnóstico de calidad y sostenibilidad empresarial (NTC 6001, NTC 6496, NTC 6503), respaldada por un Backend REST en Express, base de datos MySQL, autenticación encriptada y asistencia de Inteligencia Artificial para la evaluación, seguimiento y generación de planes de mejora continua.
+Desarrollar y consolidar una plataforma web interactiva y multi-norma especializada en el diagnóstico de calidad y sostenibilidad empresarial (NTC 6496 y NTC 6503), respaldada por un Backend REST en Express, base de datos MySQL, autenticación encriptada y asistencia de Inteligencia Artificial para la evaluación, seguimiento y generación de planes de mejora continua.
 
 ### 2.2 Objetivos Específicos
-- **Modelar dinámicamente** los cuestionarios y cláusulas técnicas de las normas NTC 6001 (Gestión para PyMEs), NTC 6496 (Sostenibilidad en Gastronomía) y NTC 6503 (Sostenibilidad en Alojamiento).
+- **Modelar dinámicamente** los cuestionarios y cláusulas técnicas de las normas NTC 6496 (Sostenibilidad en Gastronomía) y NTC 6503 (Sostenibilidad en Alojamiento).
 - **Implementar un algoritmo de ponderación de cumplimiento** que soporte estados de implementación (Cumple, Parcialmente, No Cumple, No Aplica) combinado con puntos de verificación de evidencias documentales.
 - **Diseñar una arquitectura de persistencia relacional en MySQL** que aísle las empresas y diagnósticos históricos según la cuenta del usuario autenticado (`user_id`).
 - **Desarrollar un módulo de autenticación seguro** en Node.js/Express con derivación de claves PBKDF2 y sal aleatoria.
@@ -100,7 +100,6 @@ Desarrollar y consolidar una plataforma web interactiva y multi-norma especializ
 ## 3. MARCO TEÓRICO Y NORMATIVO
 
 ### 3.1 Normas Técnicas Colombianas de Calidad y Sostenibilidad
-- **NTC 6001:** Requisitos para un Sistema de Gestión en Micro y Pequeñas Empresas. Define requisitos de liderazgo, planificación, gestión de recursos, procesos operativos, evaluación y mejora.
 - **NTC 6496:** Requisitos de Sostenibilidad para Establecimientos Gastronómicos. Evalúa impactos ambientales (agua, energía, residuos), socioculturales y económicos.
 - **NTC 6503:** Requisitos de Sostenibilidad para Servicios de Alojamiento y Hospedaje. Establece criterios de sostenibilidad turística aplicables a hoteles, hostales y posadas.
 
@@ -142,7 +141,7 @@ La plataforma sigue una arquitectura **Cliente-Servidor Multi-Capa REST**. El cl
 ### 5.2. FUNCIONES DEL PRODUCTO
 1. **Gestión de Usuarios y Registro en MySQL:** Autenticación y registro global con hashing de contraseñas PBKDF2.
 2. **Aislamiento de Diagnósticos por Usuario:** Filtrado relacional estricto de empresas e historial por `user_id`.
-3. **Selección y Configuración de Norma:** Soporte para NTC 6001, NTC 6496 y NTC 6503 con dominios independientes (`iso6001.jarestrepo.com` y `sostenibilidad.jarestrepo.com`).
+3. **Selección y Configuración de Norma:** Soporte para NTC 6496 y NTC 6503 en el dominio `sostenibilidad.jarestrepo.com`.
 4. **Registro Demográfico de la Organización:** Formulario de caracterización empresarial con autocompletado inteligente por ID.
 5. **Cuestionario Interactivo:** Evaluación por cláusulas con casillas de evidencias documentales y notas de auditoría.
 6. **Asistente de IA Contextual:** Chatbot flotante interactivo por cláusula para asesoría normativa en tiempo real.
@@ -158,7 +157,7 @@ La plataforma sigue una arquitectura **Cliente-Servidor Multi-Capa REST**. El cl
 | **RF-002** | Registro de Usuarios | Registrar nuevos usuarios en MySQL validando unicidad de nombre de usuario. | Alta |
 | **RF-003** | Aislamiento por `user_id` | Filtrar el dashboard y el historial únicamente para los registros del usuario activo. | Alta |
 | **RF-004** | Registro Demográfico | Capturar datos clave de la empresa (Nombre, NIT/ID, Sector, Ciudad, Responsable). | Alta |
-| **RF-005** | Selección de Estándar | Permitir evaluar NTC 6001, NTC 6496 o NTC 6503 de forma transparente. | Alta |
+| **RF-005** | Selección de Estándar | Permitir evaluar NTC 6496 o NTC 6503 de forma transparente. | Alta |
 | **RF-006** | Evaluación por Cláusulas | Presentar preguntas según la estructura oficial de cada norma NTC. | Alta |
 | **RF-007** | Verificación de Evidencias | Marcar documentos de soporte disponibles por requisito. | Alta |
 | **RF-008** | Chat Asistente AI | Proveer un modal de diálogo inteligente con la API de Google Gemini. | Alta |
@@ -222,7 +221,7 @@ app.use((req, res, next) => {
 
 ## 8. DISEÑO DE BASE DE DATOS Y ESQUEMA RELACIONAL (MYSQL)
 
-La base de datos MySQL en Hostinger (`u683618217_sostenibilidad`) se compone de 3 tablas relacionales:
+La base de datos MySQL (configurable mediante las variables de entorno en `backend/.env`, ver `backend/environment.example`) se compone de 3 tablas relacionales principales:
 
 ### 8.1 Tabla `users`
 ```sql
@@ -285,7 +284,7 @@ CREATE TABLE IF NOT EXISTS diagnostics (
 | **CP-002** | Login con Hash PBKDF2 | Usuario de prueba previamente registrado | Verificación exitosa del hash y retorno de sesión. | Aprobado |
 | **CP-003** | Aislamiento por `user_id` | Consulta de empresas de `empresa2026` | El Dashboard solo retorna empresas de ese `user_id`. | Aprobado |
 | **CP-004** | Petición CORS Preflight | `OPTIONS /api/auth/register` | Retorno de headers `Access-Control-Allow-Origin` y status 204. | Aprobado |
-| **CP-005** | Diagnóstico en NTC 6001 | Completar cuestionario PyME | Guardado en MySQL con `standard = 'ntc6001'`. | Aprobado |
+| **CP-005** | Diagnóstico en NTC 6496 | Completar cuestionario de sostenibilidad gastronómica | Guardado en MySQL con `standard = 'ntc6496'`. | Aprobado |
 | **CP-006** | Generación de Plan con IA | Clic en Generar Plan | Retorno de JSON estructurado de recomendaciones por Gemini. | Aprobado |
 | **CP-007** | Exportación PDF | Clic en Descargar PDF | Generación de PDF multi-página mediante canvas slicing. | Aprobado |
 | **CP-008** | Guía de Uso Interactiva | Clic en 📖 Guía de Uso | Despliegue de modal con manuales, simuladores y tour guiado. | Aprobado |
@@ -321,7 +320,7 @@ La usabilidad y calidad general del sistema fueron evaluadas bajo la norma **ISO
 # ANEXO 1. MANUAL DEL USUARIO E INSTRUCCIONES DE DESPLIEGUE
 
 ### 1. Registro e Inicio de Sesión
-1. Ingrese a la plataforma desde su dominio (`https://sostenibilidad.jarestrepo.com` o `https://iso6001.jarestrepo.com`).
+1. Ingrese a la plataforma desde el dominio `https://sostenibilidad.jarestrepo.com`.
 2. Si es un usuario nuevo, haga clic en **"Registrarse"**, cree su usuario y contraseña.
 3. Ingrese sus credenciales para acceder a su panel privado.
 

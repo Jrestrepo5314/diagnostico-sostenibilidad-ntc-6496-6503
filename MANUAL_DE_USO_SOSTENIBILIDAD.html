@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Manual de uso de la Plataforma de Diagnóstico de Sostenibilidad NTC 6496 y NTC 6503.">
+  <title>Manual de uso | Sostenibilidad NTC 6496 y 6503</title>
+  <style>
+    :root{--navy:#082f36;--green:#0f9f83;--cyan:#16b8c8;--ink:#17333a;--muted:#5b7076;--line:#d9e6e8;--wash:#f3f8f7;--warn:#fff6d9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wash);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.62}
+    .hero{color:#fff;background:radial-gradient(circle at 80% 15%,rgba(22,184,200,.25),transparent 28%),linear-gradient(135deg,#052d34,#07534f);padding:48px 24px}
+    .hero-inner,.shell{max-width:1180px;margin:auto}.brand{display:flex;align-items:center;gap:18px}.brand img{width:92px;background:#fff;border-radius:14px;padding:8px}.kicker{margin:0;color:#81ead1;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem}
+    h1{max-width:880px;margin:18px 0 12px;font-size:clamp(2.15rem,5vw,3.65rem);line-height:1.05}.lead{max-width:760px;margin:0;color:#daf6f1;font-size:1.08rem}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.meta span{padding:7px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);font-size:.85rem}
+    .shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;padding:30px 22px 64px}.toc{position:sticky;top:16px;align-self:start;padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(8,47,54,.06)}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;padding:7px 0;color:#386068;text-decoration:none;font-size:.92rem}.toc a:hover{color:var(--green)}
+    section{margin-bottom:24px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 7px 24px rgba(8,47,54,.05)}h2{margin:0 0 14px;font-size:1.65rem;line-height:1.2}h3{margin:24px 0 8px;font-size:1.08rem}p{margin:0 0 12px}ol,ul{padding-left:23px}li{margin:6px 0}
+    .route{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.route div{padding:14px 10px;border-radius:13px;background:#e9f8f4;text-align:center;font-size:.85rem;font-weight:750}.route b{display:block;color:var(--green);font-size:1.2rem}.note{padding:14px 16px;border-left:4px solid var(--green);border-radius:9px;background:#eaf9f5}.warning{padding:14px 16px;border-left:4px solid #e5a900;border-radius:9px;background:var(--warn)}
+    .standards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.standard{padding:18px;border:1px solid var(--line);border-radius:14px;background:#fbfefd}.standard span{display:inline-block;margin-bottom:8px;padding:5px 9px;border-radius:8px;background:#dff6ef;color:#08725e;font-weight:800}
+    figure{margin:18px 0 24px;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#f7fafb;box-shadow:0 9px 28px rgba(8,47,54,.09)}figure a{display:block}figure img{display:block;width:100%;max-height:720px;object-fit:contain;background:#edf3f4}figcaption{padding:12px 15px;color:var(--muted);font-size:.9rem;background:#fff}figcaption b{color:var(--ink)}
+    table{width:100%;border-collapse:collapse;font-size:.93rem}th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eaf7f4}.checklist{columns:2;column-gap:30px}.checklist li{break-inside:avoid}.footer{padding:24px;background:var(--navy);color:#cde4e7;text-align:center;font-size:.88rem}
+    @media(max-width:800px){.shell{display:block}.toc{position:static;margin-bottom:22px}.route{grid-template-columns:1fr 1fr}.standards{grid-template-columns:1fr}.checklist{columns:1}.brand{align-items:flex-start}.brand img{width:72px}section{padding:22px 18px}}
+    @media print{body{background:#fff}.hero{padding:28px 22px}.toc{display:none}.shell{display:block;padding:12px 0}.shell main{width:100%}section{box-shadow:none;break-inside:avoid}.footer{background:#fff;color:#555}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand"><img src="Escudo-unicordoba.png" alt="Escudo de la Universidad de Córdoba"><div><p class="kicker">Universidad de Córdoba · Facultad de Ingenierías</p><h1>Manual de uso — Diagnóstico de Sostenibilidad</h1><p class="lead">Guía operativa para realizar autoevaluaciones con las normas NTC 6496 y NTC 6503, interpretar resultados y construir un plan de mejora.</p></div></div>
+      <div class="meta"><span>Versión 1.0</span><span>Agosto de 2026</span><span>NTC 6496 · Gastronomía</span><span>NTC 6503 · Alojamiento</span></div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="toc" aria-label="Contenido"><strong>Contenido</strong><a href="#objetivo">1. Objetivo y preparación</a><a href="#acceso">2. Acceso y registro</a><a href="#panel">3. Panel principal</a><a href="#diagnostico">4. Nuevo diagnóstico</a><a href="#cuestionario">5. Cuestionario</a><a href="#resultados">6. Resultados y plan</a><a href="#ayuda">7. Ayuda y seguridad</a></nav>
+    <main>
+      <section id="objetivo">
+        <h2>1. Objetivo y preparación</h2>
+        <p>La plataforma permite conocer el nivel de cumplimiento de un establecimiento turístico y priorizar acciones de sostenibilidad ambiental, sociocultural y económica.</p>
+        <div class="standards">
+          <div class="standard"><span>NTC 6496</span><strong>Establecimientos gastronómicos</strong><p>Restaurantes y negocios de alimentos que desean revisar compras responsables, consumo de recursos, residuos y prácticas socioculturales.</p></div>
+          <div class="standard"><span>NTC 6503</span><strong>Alojamiento y hospedaje</strong><p>Hoteles, hostales y otros alojamientos que evalúan su gestión sostenible y su relación con el destino.</p></div>
+        </div>
+        <h3>Antes de comenzar</h3>
+        <ul><li>Use un navegador actualizado y conexión estable a internet.</li><li>Tenga disponibles NIT o identificación, datos del establecimiento y responsable de la evaluación.</li><li>Reúna políticas, permisos, facturas, registros de consumos, manejo de residuos y soportes de capacitación.</li><li>La clave Gemini es opcional; sin ella se puede completar el diagnóstico, pero no usar las funciones de IA.</li></ul>
+        <div class="route"><div><b>1</b>Ingresar</div><div><b>2</b>Elegir norma</div><div><b>3</b>Responder</div><div><b>4</b>Analizar y mejorar</div></div>
+        <figure><a href="manual-uso-assets/01-portada-sostenibilidad.png" target="_blank" rel="noopener"><img src="manual-uso-assets/01-portada-sostenibilidad.png" alt="Portada de la plataforma de sostenibilidad"></a><figcaption><b>Pantalla 1.</b> Portada institucional de la versión NTC 6496/6503. Seleccione la imagen para ampliarla.</figcaption></figure>
+      </section>
+
+      <section id="acceso">
+        <h2>2. Acceso y registro</h2>
+        <ol><li>En la portada, seleccione <strong>Ingresar</strong> o <strong>Comenzar Autoevaluación</strong>.</li><li>Escriba el usuario y la contraseña registrados.</li><li>Seleccione <strong>Iniciar sesión</strong>.</li><li>Si no tiene cuenta, abra <strong>Crear una cuenta (Registrarse)</strong>, complete los tres campos y confirme.</li></ol>
+        <div class="warning"><strong>Protección de acceso:</strong> no comparta su contraseña ni la incluya en informes, capturas o repositorios. La aplicación valida el acceso mediante el backend.</div>
+        <figure><a href="manual-uso-assets/02-ingreso-sostenibilidad.png" target="_blank" rel="noopener"><img src="manual-uso-assets/02-ingreso-sostenibilidad.png" alt="Formulario de ingreso de sostenibilidad"></a><figcaption><b>Pantalla 2.</b> Inicio de sesión.</figcaption></figure>
+        <figure><a href="manual-uso-assets/03-registro-sostenibilidad.png" target="_blank" rel="noopener"><img src="manual-uso-assets/03-registro-sostenibilidad.png" alt="Formulario de registro de sostenibilidad"></a><figcaption><b>Pantalla 3.</b> Creación de una cuenta nueva.</figcaption></figure>
+      </section>
+
+      <section id="panel">
+        <h2>3. Panel principal</h2>
+        <p>El panel reúne los diagnósticos guardados y los accesos de trabajo:</p>
+        <ul><li><strong>+ Nuevo Diagnóstico:</strong> inicia una evaluación.</li><li><strong>Guía de Uso & Manuales:</strong> abre la ayuda integrada y los documentos normativos.</li><li><strong>Tour Guiado:</strong> explica los controles principales sobre la misma interfaz.</li><li><strong>Clave Gemini:</strong> activa las consultas y el plan de acción con IA. No es obligatoria.</li></ul>
+        <figure><a href="manual-uso-assets/04-panel-sostenibilidad.png" target="_blank" rel="noopener"><img src="manual-uso-assets/04-panel-sostenibilidad.png" alt="Panel principal de sostenibilidad"></a><figcaption><b>Pantalla 4.</b> Panel de diagnósticos y accesos rápidos.</figcaption></figure>
+      </section>
+
+      <section id="diagnostico">
+        <h2>4. Crear un nuevo diagnóstico</h2>
+        <ol><li>Seleccione <strong>+ Nuevo Diagnóstico</strong>.</li><li>Elija <strong>NTC 6496</strong> para gastronomía o <strong>NTC 6503</strong> para alojamiento.</li><li>Si necesita más información, use <strong>Ver detalle de la norma</strong>.</li><li>Seleccione <strong>Iniciar Diagnóstico con esta Norma</strong>.</li><li>Complete identificación, nombre, sector, departamento, ciudad, fecha de fundación, responsable y tamaño.</li><li>Revise la información y continúe al cuestionario.</li></ol>
+        <div class="note"><strong>Elección correcta:</strong> la norma seleccionada determina las cláusulas, preguntas y evidencias que aparecerán. Si eligió una norma equivocada, vuelva al panel antes de diligenciar.</div>
+        <figure><a href="manual-uso-assets/05-seleccion-ntc6496-6503.png" target="_blank" rel="noopener"><img src="manual-uso-assets/05-seleccion-ntc6496-6503.png" alt="Selección entre NTC 6496 y NTC 6503"></a><figcaption><b>Pantalla 5.</b> Selección entre las normas de sostenibilidad.</figcaption></figure>
+        <figure><a href="manual-uso-assets/06-datos-organizacion-ntc6496.png" target="_blank" rel="noopener"><img src="manual-uso-assets/06-datos-organizacion-ntc6496.png" alt="Formulario de datos de organización NTC 6496"></a><figcaption><b>Pantalla 6.</b> Caracterización del establecimiento para NTC 6496.</figcaption></figure>
+      </section>
+
+      <section id="cuestionario">
+        <h2>5. Diligenciar el cuestionario</h2>
+        <p>Las preguntas están organizadas por cláusulas. Seleccione el estado que mejor represente la situación real y marque únicamente evidencias verificadas.</p>
+        <table><thead><tr><th>Estado</th><th>Uso recomendado</th></tr></thead><tbody><tr><td><strong>Cumple</strong></td><td>La práctica está implementada y cuenta con evidencia.</td></tr><tr><td><strong>Parcialmente</strong></td><td>Existen avances, pero faltan controles, formalización o registros.</td></tr><tr><td><strong>No cumple</strong></td><td>No se ha implementado el requisito o no existe soporte.</td></tr><tr><td><strong>No aplica</strong></td><td>El requisito no corresponde al establecimiento; justifique la decisión.</td></tr></tbody></table>
+        <h3>Buenas prácticas</h3><ul><li>Revise cada cláusula con la persona responsable del proceso.</li><li>Use los comentarios para registrar hallazgos, ubicación de soportes y tareas pendientes.</li><li>No marque una evidencia solo porque “debería existir”; confirme el documento o registro.</li><li>El asistente contextual puede sugerir ejemplos, pero la decisión final corresponde al evaluador.</li></ul>
+      </section>
+
+      <section id="resultados">
+        <h2>6. Resultados, plan de acción e informe</h2>
+        <ol><li>Complete todas las cláusulas y seleccione <strong>Finalizar Diagnóstico</strong>.</li><li>Revise el porcentaje global y el desempeño por cláusula.</li><li>Priorice los requisitos en estado <strong>Parcialmente</strong> o <strong>No cumple</strong>.</li><li>Si configuró Gemini, genere el plan de acción con IA y valide cada recomendación.</li><li>Guarde el diagnóstico y descargue el PDF desde la vista de resultados.</li><li>Use el historial para comparar una evaluación posterior con la línea base.</li></ol>
+        <div class="note"><strong>Interpretación:</strong> el resultado es una herramienta de autodiagnóstico. No reemplaza una auditoría de certificación ni la revisión de un profesional competente.</div>
+      </section>
+
+      <section id="ayuda">
+        <h2>7. Ayuda, solución de problemas y seguridad</h2>
+        <figure><a href="manual-uso-assets/07-guia-integrada-sostenibilidad.png" target="_blank" rel="noopener"><img src="manual-uso-assets/07-guia-integrada-sostenibilidad.png" alt="Guía integrada de sostenibilidad"></a><figcaption><b>Pantalla 7.</b> Centro de guías con el manual NTC 6496/6503.</figcaption></figure>
+        <table><thead><tr><th>Situación</th><th>Qué hacer</th></tr></thead><tbody><tr><td>No puede iniciar sesión</td><td>Verifique usuario, contraseña, conexión y dirección del backend. No use credenciales de ejemplo.</td></tr><tr><td>La IA no responde</td><td>Confirme que ingresó una clave Gemini válida y que tiene conexión a internet.</td></tr><tr><td>No aparecen diagnósticos</td><td>Confirme que inició sesión con el mismo usuario y que el backend está disponible.</td></tr><tr><td>El PDF no se descarga</td><td>Permita descargas y ventanas emergentes para el sitio, luego inténtelo nuevamente.</td></tr></tbody></table>
+        <h3>Lista de verificación antes de cerrar</h3><ul class="checklist"><li>Norma correcta seleccionada.</li><li>Datos del establecimiento revisados.</li><li>Todas las cláusulas respondidas.</li><li>Evidencias confirmadas.</li><li>Comentarios registrados.</li><li>Resultados revisados.</li><li>Plan de acción validado.</li><li>Diagnóstico guardado o exportado.</li></ul>
+      </section>
+    </main>
+  </div>
+  <footer class="footer">Manual de uso · Plataforma de Diagnóstico de Sostenibilidad NTC 6496/6503 · Universidad de Córdoba · 2026</footer>
+</body>
+</html>

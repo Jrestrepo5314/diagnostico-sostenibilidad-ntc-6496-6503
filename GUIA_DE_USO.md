@@ -1,5 +1,5 @@
 # 📖 GUÍA DE USO Y MANUAL DE USUARIO PASO A PASO
-## Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma (NTC 6001 / NTC 6496 / NTC 6503)
+## Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma (NTC 6496 / NTC 6503)
 
 **Documento Operativo del Auditor y Evaluador Final**  
 **Modelo de Documentación Adaptado:** ManField User Manual Standard (Anexo 1 - ManField Model)  
@@ -43,10 +43,10 @@
 
 ## 1. INTRODUCCIÓN
 
-La **Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma** es una herramienta web interactiva diseñada para guiar a micro, pequeñas y medianas empresas (PyMEs), establecimientos gastronómicos y servicios de alojamiento en la evaluación y certificación de las normas colombianas **NTC 6001**, **NTC 6496** y **NTC 6503**.
+La **Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma** es una herramienta web interactiva diseñada para guiar a micro, pequeñas y medianas empresas (PyMEs), establecimientos gastronómicos y servicios de alojamiento en la evaluación y certificación de las normas colombianas **NTC 6496** y **NTC 6503**.
 
 ### 1.1 Capacidades del Sistema
-- **Diagnóstico Multi-Norma Integrado:** Evaluación completa de NTC 6001, NTC 6496 y NTC 6503.
+- **Diagnóstico Multi-Norma Integrado:** Evaluación completa de NTC 6496 y NTC 6503.
 - **Cálculo de Cumplimiento Ponderado:** Algoritmo estadístico que pondera estados de implementación y evidencias documentales.
 - **Asistencia Virtual con IA:** Consultas normativas contextuales mediante Inteligencia Artificial (Google Gemini API).
 - **Generador de Planes de Acción:** Creación automatizada de matrices de tareas priorizadas (Alta, Media, Baja).
@@ -79,7 +79,7 @@ Al ingresar a la aplicación, el sistema verifica si existe una sesión activa. 
 El Dashboard principal está organizado en las siguientes secciones clave:
 - **Encabezado:** Muestra el título del sistema, la norma activa seleccionada y el botón de cierre de sesión.
 - **Tarjeta de Inicio de Diagnóstico:** Botón destacado **"+ Nuevo Diagnóstico"** para empezar una evaluación.
-- **Accesos a Manuales Normativos:** Botones **"Manual NTC 6001"** y **"Manual NTC 6496/6503"** para consultar las guías técnicas.
+- **Accesos a Manuales Normativos:** Botón **"Manual NTC 6496/6503"** para consultar las guías técnicas.
 - **Panel de Empresas Diagnosticadas:** Tarjetas con el historial de empresas evaluadas, mostrando Nombre, ID, Norma y Fecha del último informe.
 
 ---
@@ -99,7 +99,6 @@ El Dashboard principal está organizado en las siguientes secciones clave:
 
 ### 4.2 Selección de Estándar Normativo
 Seleccione la norma técnica a evaluar según el sector:
-- 🏢 **NTC 6001:** Sistemas de gestión para micro y pequeñas empresas.
 - 🍽️ **NTC 6496:** Sostenibilidad para restaurantes y establecimientos gastronómicos.
 - 🏨 **NTC 6503:** Sostenibilidad para hoteles, hostales y alojamientos.
 
@@ -195,12 +194,7 @@ En la parte inferior de la pantalla de resultados:
 
 ## 12. EJEMPLOS PRÁCTICOS DE DIAGNÓSTICO
 
-### Ejemplo 1: Diagnóstico de una Microempresa de Calzado (NTC 6001)
-- **Configuración:** Tamaño Micro, NTC 6001.
-- **Resultado Típico:** Cumplimiento del 65% en gestión operativa y brechas en la cláusula 8 (Gestión Financiera).
-- **Acción Sugerida por IA:** Implementación de flujo de caja mensual y formalización de perfil de cargos.
-
-### Ejemplo 2: Diagnóstico de un Restaurante Turístico (NTC 6496)
+### Ejemplo 1: Diagnóstico de un Restaurante Turístico (NTC 6496)
 - **Configuración:** Sector Gastronómico, NTC 6496.
 - **Resultado Típico:** Cumplimiento del 80% ambiental con recomendación en el manejo de Aceites Vegetales Usados (AVU).
 - **Acción Sugerida por IA:** Firma de convenio con gestor autorizado de AVU y capacitación al personal de cocina.
